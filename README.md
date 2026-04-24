@@ -42,3 +42,8 @@ bin/rails db:seed
 ### 3. Start Server
 bin/rails server
 
+
+#Special Note
+
+I'm not too familiar with Turbo and Hotwire (although I've used them before in small projects). I spend a bit of time wiring up and if I had more time, would have included a cleaner UI than the
+one I provided with a free small html libray. I also would have used A.I. to scaffold an rspec test suite for testing. As for stimulus, I'm not sure if it would have been completely necessary and I do consider it to be overkill for this small project, but it still would have been nice to find ways to make use of it.
