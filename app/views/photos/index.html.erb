@@ -1,0 +1,10 @@
+<p>Photos</p>
+<% if logged_in? %>
+  <div style="padding: 10px;">
+    Signed in as <%= current_user.email %>
+    <%= button_to "Sign out",
+        sign_out_path,
+        method: :delete,
+        form: { style: "display:inline" } %>
+  </div>
+<% end %>
