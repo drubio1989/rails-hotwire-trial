@@ -1,4 +1,29 @@
-<p>Photos</p>
+<h1>All Photos</h1>
+<div>
+  <% @photos.each do |photo| %>
+    <div>
+      <div>
+        <img src="<%= photo.image_url %>" alt="<%= photo.alt %>">
+      </div>
+      <div>
+        <p>
+          <%= photo.photographer %>
+        </p>
+        <div>
+          <a href="<%= photo.source_url %>" target="_blank" >
+            <%= image_tag "links.svg", style: "width: 16px; height: 16px;" %>
+            Source
+          </a>
+          <div >
+            <%= image_tag "star-line.svg", style: "width: 16px; height: 16px;" %>
+            <span>0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
 <% if logged_in? %>
   <div style="padding: 10px;">
     Signed in as <%= current_user.email %>

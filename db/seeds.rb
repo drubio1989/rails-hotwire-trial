@@ -27,8 +27,8 @@ csv_path = Rails.root.join("db/photos.csv")
 CSV.foreach(csv_path, headers: true) do |row|
   Photo.find_or_create_by!(id: row["id"]) do |photo|
     photo.photographer = row["photographer"]
-    photo.image_url         = row["src.medium"]
-    photo.source_url        = row["url"]
-    photo.alt               = row["alt"]
+    photo.image_url = row["src.medium"]
+    photo.source_url = row["url"]
+    photo.alt = row["alt"]
   end
 end
