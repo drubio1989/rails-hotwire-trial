@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   post "sign_in", to: "sessions#create"
   delete "sign_out", to: "sessions#destroy"
   
-  get "/photos", to: "photos#index"
-  resources :likes, only: [:create, :destroy]
+  resources :photos, only: [:index] do
+    resources :likes, only: [:create, :destroy]
+  end
+
   root "photos#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

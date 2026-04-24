@@ -1,20 +1,18 @@
 class LikesController < ApplicationController
+  before_action :find_photo
+  
   def create
-    like = Like.new(like_params)
-    if like.save
-      redirect_to root_path
-    end
+    current_user.likes.create!(photo: @photo)
   end
   
   def destroy
-    like = Like.find(params[:id])
-    like.destroy if like.user_id == current_user.id
-    redirect_to root_path
+    like = @photo.likes.find(current_user.id)
+    like.destroy
   end
   
   private
   
-  def like_params
-    params.expect(like: [:user_id, :photo_id])
+  def find_photo
+    @photo = Photo.find(params[:photo_id])
   end
 end

@@ -16,7 +16,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_24_024003) do
     t.integer "photo_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "likes_count", default: 0, null: false
     t.index ["photo_id"], name: "index_likes_on_photo_id"
     t.index ["user_id", "photo_id"], name: "index_likes_on_user_id_and_photo_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
@@ -29,6 +28,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_24_024003) do
     t.string "alt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "likes_count", default: 0, null: false
   end
 
   create_table "users", force: :cascade do |t|
